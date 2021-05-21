@@ -27,5 +27,6 @@ public class Activitati {
 	 * @return 
 	 */
 	public boolean redenumireActivitate() {
+		return true;
 	}
 };
