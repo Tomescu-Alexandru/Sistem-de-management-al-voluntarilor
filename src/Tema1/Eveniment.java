@@ -87,4 +87,3 @@ public class Eveniment {
 		this.program = new Program(intervaleOrare);
 	}
 };
- -
