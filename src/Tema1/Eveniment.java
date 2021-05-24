@@ -30,16 +30,61 @@ public class Eveniment {
 	 */
 	public Manager manager;
 
-	/**
-	 * 
-	 */
-	public void afisareVoluntari() {
+	public Eveniment(String locatie, String numeEveniment, Echipa[] echipa, Program program, Manager manager) {
+		this.locatie = locatie;
+		this.numeEveniment = numeEveniment;
+		this.echipa = echipa;
+		this.program = program;
+		this.manager = manager;
 	}
 
-	/**
-	 * 
-	 * @param intervaleOrare 
-	 */
-	public void creareProgram(String intervaleOrare) {
+	public String getLocatie() {
+		return locatie;
+	}
+
+	public void setLocatie(String locatie) {
+		this.locatie = locatie;
+	}
+
+	public String getNumeEveniment() {
+		return numeEveniment;
+	}
+
+	public void setNumeEveniment(String numeEveniment) {
+		this.numeEveniment = numeEveniment;
+	}
+
+	public Echipa[] getEchipa() {
+		return echipa;
+	}
+
+	public void setEchipa(Echipa[] echipa) {
+		this.echipa = echipa;
+	}
+
+	public Program getProgram() {
+		return program;
+	}
+
+	public void setProgram(Program program) {
+		this.program = program;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+
+	public void afisareVoluntari() {
+
+	}
+
+
+	public void creareProgram(String intervaleOrare[]) {
+		this.program = new Program(intervaleOrare);
 	}
 };
+ -

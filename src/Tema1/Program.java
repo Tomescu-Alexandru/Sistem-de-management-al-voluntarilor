@@ -17,19 +17,45 @@ public class Program {
 	 * 
 	 */
 	private String[] intervalOrar;
+	private int nrActivitati;
 
-	/**
-	 * 
-	 * @param activitate 
-	 * @return 
-	 */
-	public boolean adaugareActivitate(Activitati activitate) {
+	public Program(String[] intervalOrar) {
+		this.intervalOrar = intervalOrar;
+		this.nrActivitati=0;
+		this.activitati = new Activitati[intervalOrar.length];
 	}
 
-	/**
-	 * 
-	 * @return 
-	 */
-	public boolean stergereActivitate() {
+	public boolean adaugareActivitate(Activitati activitate) {
+		if(nrActivitati <= intervalOrar.length)
+		{
+			for(int i=0; i<nrActivitati; i++)
+				if(activitati[i].equals(activitate)) {
+					System.out.println("Activitate existenta");
+					return false;
+				}
+			this.activitati[nrActivitati++] = activitate;
+				return true;
+		}
+
+		return false;
+	}
+
+
+	public boolean stergereActivitate(Activitati activitate) {
+		for (int i=0; i<nrActivitati-1;i++)
+			if (activitati[i].equals(activitate))
+			{
+				for(int j=i+1;j<nrActivitati-1;j++)
+					activitati[j]=activitati[j+1];
+
+				return true;
+			}
+		if (activitati[nrActivitati-1].equals(activitate)) {
+			nrActivitati--;
+			return true;
+		}
+
+		return false;
+
 	}
 };

@@ -5,6 +5,9 @@
 package Tema1;
 
 /************************************************************/
+
+import java.util.Objects;
+
 /**
  * 
  */
@@ -22,11 +25,65 @@ public class Activitati {
 	 */
 	private int numarMaximVoluntari;
 
-	/**
-	 * 
-	 * @return 
-	 */
-	public boolean redenumireActivitate() {
-		return true;
+	public Activitati(String numeActivitate, String descriere, int numarMaximVoluntari) {
+		this.numeActivitate = numeActivitate;
+		this.descriere = descriere;
+		this.numarMaximVoluntari = numarMaximVoluntari;
+	}
+
+	public String getNumeActivitate() {
+		return numeActivitate;
+	}
+
+	public void setNumeActivitate(String numeActivitate) {
+		this.numeActivitate = numeActivitate;
+	}
+
+	public String getDescriere() {
+		return descriere;
+	}
+
+	public void setDescriere(String descriere) {
+		this.descriere = descriere;
+	}
+
+	public int getNumarMaximVoluntari() {
+		return numarMaximVoluntari;
+	}
+
+	public void setNumarMaximVoluntari(int numarMaximVoluntari) {
+		this.numarMaximVoluntari = numarMaximVoluntari;
+	}
+
+	@java.lang.Override
+	public java.lang.String toString() {
+		return "Activitati{" +
+				"numeActivitate='" + numeActivitate + '\'' +
+				", descriere='" + descriere + '\'' +
+				", numarMaximVoluntari=" + numarMaximVoluntari +
+				'}';
+	}
+
+	public boolean redenumireActivitate(String numeActivitateNou) {
+		if (numeActivitateNou !="") {
+			this.numeActivitate = numeActivitateNou;
+			return true;
+		}
+
+		return false;
+
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Activitati that = (Activitati) o;
+		return numarMaximVoluntari == that.numarMaximVoluntari && Objects.equals(numeActivitate, that.numeActivitate) && Objects.equals(descriere, that.descriere);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(numeActivitate, descriere, numarMaximVoluntari);
 	}
 };
