@@ -22,7 +22,7 @@ public class Eveniment {
      *
      */
     public Echipa[] echipa;
-    private int nrEchipe;
+    private int nrEchipe=0;
     private static final int NR_MAX_ECHIPE=20;
     /**
      *
@@ -40,6 +40,10 @@ public class Eveniment {
         this.program = program;
         this.manager = manager;
         this.nrEchipe=0;
+    }
+    
+    public Eveniment(String nume) {
+    	this.numeEveniment = nume;
     }
 
     public String getLocatie() {
@@ -124,15 +128,14 @@ public class Eveniment {
         return false;
     }
 	
-    
-    public boolean creareEchipa(String nume){
+    public boolean creareEchipa(Echipa echipa){
         if (nrEchipe < NR_MAX_ECHIPE) {
             for (int i = 0; i < nrEchipe; i++)
-                if (echipa[i].getNumeEchipa() == nume) {
+                if (this.echipa[i].getNumeEchipa() == echipa.getNumeEchipa()) {
                     System.out.println("Echipa existenta");
                     return false;
                 }
-            this.echipa[nrEchipe++].setNumeEchipa(nume);
+            this.echipa[nrEchipe++]=echipa;
             System.out.println("Echipa adaugata");
             return true;
         }

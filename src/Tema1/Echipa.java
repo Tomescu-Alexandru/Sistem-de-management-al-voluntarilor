@@ -144,6 +144,12 @@ public class Echipa {
     	boolean solicitare = voluntar.isSolicitare();
         if(voluntar.solicitareInscriere(solicitare)){
             if(nr_voluntari < NR_MAX_VOLUNTARI){
+            	for(int i = 0; i < nr_voluntari; i++) {
+            		if(this.voluntar[i].getNume() == voluntar.getNume()) {
+            			System.out.println("Voluntar existent!");
+            			return false;
+            		}
+            	}
 				this.voluntar[nr_voluntari++] = voluntar;
 				System.out.println("Voluntar adaugat!");
 				return true;
