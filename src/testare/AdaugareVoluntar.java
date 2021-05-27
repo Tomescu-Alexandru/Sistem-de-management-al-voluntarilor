@@ -32,7 +32,7 @@ public class AdaugareVoluntar {
         Voluntar voluntar = new Voluntar("voluntar1","voluntar1","voluntar1","voluntar1",18,"10-12","Zi1","Rol1");
        
         assertEquals(true,eveniment.alocareEchipa(voluntar, echipa1));
-        assertEquals(false,eveniment.alocareEchipa(voluntar, echipa1));
+        assertEquals(false,eveniment.alocareEchipa(voluntar, echipa2));
     }
 
 }
