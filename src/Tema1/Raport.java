@@ -14,9 +14,29 @@ public class Raport {
 	 */
 	private String[] istoricOcupatii;
 
+	public int nr_ocupatii;
+	
+	static final int NR_MAX_OCUPATII = 20;
 	/**
 	 * 
 	 */
 	public void afisare() {
+		for(int i = 0; i < nr_ocupatii; i++) {
+			System.out.println("Ocupatie: " + this.istoricOcupatii[i]);
+		}
+	}
+
+	public Raport(String[] istoricOcupatii) {
+		super();
+		nr_ocupatii = 0;
+		this.istoricOcupatii = new String[NR_MAX_OCUPATII] ;
+	}
+
+	public String[] getIstoricOcupatii() {
+		return istoricOcupatii;
+	}
+
+	public void adaugare_ocupatie(String ocupatie) {
+		this.istoricOcupatii[nr_ocupatii++] = ocupatie;
 	}
 };

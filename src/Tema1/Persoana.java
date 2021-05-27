@@ -8,7 +8,7 @@ package Tema1;
 /**
  * 
  */
-public class Persoana {
+public class Persoana extends User {
 	/**
 	 * 
 	 */
@@ -21,14 +21,47 @@ public class Persoana {
 	 * 
 	 */
 	private int varsta;
-	/**
-	 * 
-	 */
-	public User user;
 
 	/**
 	 * 
 	 */
 	public void afisare() {
+		super.afisare();
+		System.out.println("Nume: " + this.nume);
+		System.out.println("Prenume: " + this.prenume);
+		System.out.println("Varsta: " + this.varsta);
 	}
+
+	public Persoana(String username, String parola, String nume, String prenume, int varsta) {
+		super(username, parola);
+		this.nume = nume;
+		this.prenume = prenume;
+		this.varsta = varsta;
+	}
+
+	public String getNume() {
+		return nume;
+	}
+
+	public void setNume(String nume) {
+		this.nume = nume;
+	}
+
+	public String getPrenume() {
+		return prenume;
+	}
+
+	public void setPrenume(String prenume) {
+		this.prenume = prenume;
+	}
+
+	public int getVarsta() {
+		return varsta;
+	}
+
+	public void setVarsta(int varsta) {
+		this.varsta = varsta;
+	}
+	
+	
 };
