@@ -5,85 +5,90 @@
 package Tema1;
 
 /************************************************************/
+
 /**
- * 
+ *
  */
 public class Eveniment {
-	/**
-	 * 
-	 */
-	private String locatie;
-	/**
-	 * 
-	 */
-	private String numeEveniment;
-	/**
-	 * 
-	 */
-	public Echipa[] echipa;
-	/**
-	 * 
-	 */
-	public Program program;
-	/**
-	 * 
-	 */
-	public Manager manager;
+    /**
+     *
+     */
+    private String locatie;
+    /**
+     *
+     */
+    private String numeEveniment;
+    /**
+     *
+     */
+    public Echipa[] echipa;
+    private int nrEchipe;
+    private static final int NR_MAX_ECHIPE=20;
+    /**
+     *
+     */
+    public Program program;
+    /**
+     *
+     */
+    public Manager manager;
 
-	public Eveniment(String locatie, String numeEveniment, Echipa[] echipa, Program program, Manager manager) {
-		this.locatie = locatie;
-		this.numeEveniment = numeEveniment;
-		this.echipa = echipa;
-		this.program = program;
-		this.manager = manager;
-	}
+    public Eveniment(String locatie, String numeEveniment, Program program, Manager manager) {
+        this.locatie = locatie;
+        this.numeEveniment = numeEveniment;
+        this.echipa = new Echipa[NR_MAX_ECHIPE];
+        this.program = program;
+        this.manager = manager;
+        this.nrEchipe=0;
+    }
 
-	public String getLocatie() {
-		return locatie;
-	}
+    public String getLocatie() {
+        return locatie;
+    }
 
-	public void setLocatie(String locatie) {
-		this.locatie = locatie;
-	}
+    public void setLocatie(String locatie) {
+        this.locatie = locatie;
+    }
 
-	public String getNumeEveniment() {
-		return numeEveniment;
-	}
+    public String getNumeEveniment() {
+        return numeEveniment;
+    }
 
-	public void setNumeEveniment(String numeEveniment) {
-		this.numeEveniment = numeEveniment;
-	}
+    public void setNumeEveniment(String numeEveniment) {
+        this.numeEveniment = numeEveniment;
+    }
 
-	public Echipa[] getEchipa() {
-		return echipa;
-	}
+    public Echipa[] getEchipa() {
+        return echipa;
+    }
 
-	public void setEchipa(Echipa[] echipa) {
-		this.echipa = echipa;
-	}
+    public void setEchipa(Echipa[] echipa) {
+        this.echipa = echipa;
+    }
 
-	public Program getProgram() {
-		return program;
-	}
+    public Program getProgram() {
+        return program;
+    }
 
-	public void setProgram(Program program) {
-		this.program = program;
-	}
+    public void setProgram(Program program) {
+        this.program = program;
+    }
 
-	public Manager getManager() {
-		return manager;
-	}
+    public Manager getManager() {
+        return manager;
+    }
 
-	public void setManager(Manager manager) {
-		this.manager = manager;
-	}
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
 
-	public void afisareVoluntari() {
+    public void afisareVoluntari() {
+		for(int i=0;i<nrEchipe;i++){
+			echipa[i].afisare();
+		}
+    }
 
-	}
-
-
-	public void creareProgram(String intervaleOrare[]) {
-		this.program = new Program(intervaleOrare);
-	}
+    public void creareProgram(String intervaleOrare[]) {
+        this.program = new Program(intervaleOrare);
+    }
 };
