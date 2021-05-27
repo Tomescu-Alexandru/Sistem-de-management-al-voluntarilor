@@ -96,4 +96,11 @@ public class Program {
         return true;
 
     }
+
+    public void afisare(){
+        for(int i=0;i<nrActivitati;i++){
+            System.out.println(intervalOrar[i]);
+            System.out.println(activitati[i].toString());
+        }
+    }
 };

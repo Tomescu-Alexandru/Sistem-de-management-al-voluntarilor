@@ -8,5 +8,29 @@ package Tema1;
 /**
  * 
  */
-public class Manager {
+public class Manager extends Persoana{
+
+    public Manager(String username, String parola, String nume, String prenume, int varsta){
+        super(username,parola,nume,prenume,varsta);
+    }
+
+    public void solicitareRaport(Echipa echipa){
+
+    }
+
+    public void adaugareVoluntar(Voluntar voluntar){
+
+    }
+
+    public void alocareEchipa(){
+
+    }
+
+    public void asignareActivitateEchipa(Activitati activitate, Echipa echipa){
+
+    }
+
+    public void creareEchipa(String nume){
+
+    }
 };
