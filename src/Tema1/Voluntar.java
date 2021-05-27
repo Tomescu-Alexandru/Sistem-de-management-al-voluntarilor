@@ -21,6 +21,8 @@ public class Voluntar extends Persoana {
 	 * 
 	 */
 	private String Rol;
+	
+	private boolean solicitare;
 
 	/**
 	 * 
@@ -69,8 +71,7 @@ public class Voluntar extends Persoana {
 	 * 
 	 * @param echipa 
 	 */
-	public void solicitareInscriere(Echipa echipa) {
-		
-		
+	public boolean solicitareInscriere(boolean solicitare) {
+		return solicitare;
 	}
 };

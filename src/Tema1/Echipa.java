@@ -29,12 +29,70 @@ public class Echipa {
 	 * 
 	 */
 	private String numeEchipa;
+	
+	public int nr_voluntari;
+	
+	static final int NR_MAX_VOLUNTARI = 20;
 
 	/**
 	 * 
 	 * @param nrVoluntar 
 	 */
+	
 	public void asignareLider(int nrVoluntar) {
+		this.voluntar[nrVoluntar] = this.liderEchipa;
+	}
+
+	public Echipa(Voluntar liderEchipa, Voluntar[] voluntar, Raport raport, Activitati activitateEchipa,
+			String numeEchipa) {
+		super();
+		this.liderEchipa = liderEchipa;
+		nr_voluntari = 0;
+		this.voluntar = new Voluntar[NR_MAX_VOLUNTARI];
+		this.raport = raport;
+		this.activitateEchipa = activitateEchipa;
+		this.numeEchipa = numeEchipa;
+	}
+
+	
+	public Voluntar getLiderEchipa() {
+		return liderEchipa;
+	}
+
+	public void setLiderEchipa(Voluntar liderEchipa) {
+		this.liderEchipa = liderEchipa;
+	}
+
+	public Voluntar[] getVoluntar() {
+		return voluntar;
+	}
+
+	public void setVoluntar(Voluntar[] voluntar) {
+		this.voluntar = voluntar;
+	}
+
+	public Raport getRaport() {
+		return raport;
+	}
+
+	public void setRaport(Raport raport) {
+		this.raport = raport;
+	}
+
+	public Activitati getActivitateEchipa() {
+		return activitateEchipa;
+	}
+
+	public void setActivitateEchipa(Activitati activitateEchipa) {
+		this.activitateEchipa = activitateEchipa;
+	}
+
+	public String getNumeEchipa() {
+		return numeEchipa;
+	}
+
+	public void setNumeEchipa(String numeEchipa) {
+		this.numeEchipa = numeEchipa;
 	}
 
 	/**
@@ -43,6 +101,7 @@ public class Echipa {
 	 * @param rol 
 	 */
 	public void asignareRol(int nrVoluntar, String rol) {
+		this.voluntar[nrVoluntar].setRol(rol);
 	}
 
 	/**
@@ -50,11 +109,13 @@ public class Echipa {
 	 * @param ocupatie 
 	 */
 	public void completareRaport(String ocupatie) {
+		raport.adaugare_ocupatie(ocupatie);
 	}
 
 	/**
 	 * 
 	 */
 	public void eliberareRaport() {
+		raport.getIstoricOcupatii();
 	}
 };
