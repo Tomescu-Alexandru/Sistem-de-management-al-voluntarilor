@@ -5,57 +5,95 @@
 package Tema1;
 
 /************************************************************/
+
 /**
- * 
+ *
  */
 public class Program {
-	/**
-	 * 
-	 */
-	public Activitati[] activitati;
-	/**
-	 * 
-	 */
-	private String[] intervalOrar;
-	private int nrActivitati;
+    /**
+     *
+     */
+    public Activitati[] activitati;
+    /**
+     *
+     */
+    private String[] intervalOrar;
+    private int nrActivitati;
 
-	public Program(String[] intervalOrar) {
-		this.intervalOrar = intervalOrar;
-		this.nrActivitati=0;
-		this.activitati = new Activitati[intervalOrar.length];
-	}
+    public Program(String[] intervalOrar) {
+        this.intervalOrar = intervalOrar;
+        this.nrActivitati = 0;
+        this.activitati = new Activitati[intervalOrar.length];
+    }
 
-	public boolean adaugareActivitate(Activitati activitate) {
-		if(nrActivitati <= intervalOrar.length)
-		{
-			for(int i=0; i<nrActivitati; i++)
-				if(activitati[i].equals(activitate)) {
-					System.out.println("Activitate existenta");
-					return false;
-				}
-			this.activitati[nrActivitati++] = activitate;
-				return true;
-		}
+    public boolean adaugareActivitate(Activitati activitate) {
+        if (nrActivitati < intervalOrar.length) {
+            for (int i = 0; i < nrActivitati; i++)
+                if (activitati[i].equals(activitate)) {
+                    System.out.println("Activitate existenta");
+                    return false;
+                }
+            this.activitati[nrActivitati++] = activitate;
+            System.out.println("Activitate adaugata");
+            return true;
+        }
+        System.out.println("Numar maxim de activitati atins");
+        return false;
+    }
 
-		return false;
-	}
 
+    public boolean stergereActivitate(Activitati activitate) {
+        for (int i = 0; i < nrActivitati - 1; i++)
+            if (activitati[i].equals(activitate)) {
+                for (int j = i + 1; j < nrActivitati - 1; j++)
+                    activitati[j] = activitati[j + 1];
 
-	public boolean stergereActivitate(Activitati activitate) {
-		for (int i=0; i<nrActivitati-1;i++)
-			if (activitati[i].equals(activitate))
-			{
-				for(int j=i+1;j<nrActivitati-1;j++)
-					activitati[j]=activitati[j+1];
+                return true;
+            }
+        if (activitati[nrActivitati - 1].equals(activitate)) {
+            nrActivitati--;
+            return true;
+        }
 
-				return true;
-			}
-		if (activitati[nrActivitati-1].equals(activitate)) {
-			nrActivitati--;
-			return true;
-		}
+        return false;
 
-		return false;
+    }
 
-	}
+    public boolean redenumireActivitate(String numeActivitate, String numeActivitateNou) {
+
+        if(numeActivitate==numeActivitateNou){
+            System.out.println("Acelasi nume");
+            return false;
+        }
+
+        if (numeActivitateNou==""){
+            System.out.println("Numele nu poate sa fie gol");
+            return false;
+        }
+
+        int pozitie=-1;
+        boolean flagEroare = false;
+        for (int i = 0; i < nrActivitati; i++) {
+            if(activitati[i].getNumeActivitate()== numeActivitate)
+                pozitie=i;
+
+            if (activitati[i].getNumeActivitate() == numeActivitateNou) {
+                System.out.println("Nume deja existent");
+                flagEroare=true;
+            }
+        }
+
+        if(flagEroare)
+            return false;
+
+        if(pozitie==-1){
+            System.out.println("Activitate inexistenta");
+            return false;
+        }
+
+        activitati[pozitie].setNumeActivitate(numeActivitateNou);
+        System.out.println("Nume modificat");
+        return true;
+
+    }
 };

@@ -64,15 +64,6 @@ public class Activitati {
 				'}';
 	}
 
-	public boolean redenumireActivitate(String numeActivitateNou) {
-		if (numeActivitateNou !="") {
-			this.numeActivitate = numeActivitateNou;
-			return true;
-		}
-
-		return false;
-
-	}
 
 	@Override
 	public boolean equals(Object o) {
