@@ -4,6 +4,9 @@
 
 package Tema1;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /************************************************************/
 /**
  * 
@@ -34,14 +37,6 @@ public class Echipa {
 	
 	static final int NR_MAX_VOLUNTARI = 20;
 
-	/**
-	 * 
-	 * @param nrVoluntar 
-	 */
-	
-	public void asignareLider(int nrVoluntar) {
-		this.voluntar[nrVoluntar] = this.liderEchipa;
-	}
 
 	public Echipa(Voluntar liderEchipa, Voluntar[] voluntar, Raport raport, Activitati activitateEchipa,
 			String numeEchipa) {
@@ -52,6 +47,10 @@ public class Echipa {
 		this.raport = raport;
 		this.activitateEchipa = activitateEchipa;
 		this.numeEchipa = numeEchipa;
+	}
+
+	public Echipa(String nume){
+		this.numeEchipa = nume;
 	}
 
 	
@@ -95,6 +94,9 @@ public class Echipa {
 		this.numeEchipa = numeEchipa;
 	}
 
+	public void asignareLider(int nrVoluntar) {
+		this.voluntar[nrVoluntar] = this.liderEchipa;
+	}
 	/**
 	 * 
 	 * @param nrVoluntar 
@@ -108,8 +110,14 @@ public class Echipa {
 	 * 
 	 * @param ocupatie 
 	 */
-	public void completareRaport(String ocupatie) {
-		raport.adaugare_ocupatie(ocupatie);
+	public boolean completareRaport(String ocupatie) {
+		if(ocupatie != " "){
+			raport.adaugare_ocupatie(ocupatie);
+			return true;
+		}else{
+			System.out.println("Nu este o ocupatie valida!");
+			return false;
+		}
 	}
 
 	/**
@@ -118,4 +126,48 @@ public class Echipa {
 	public void eliberareRaport() {
 		raport.getIstoricOcupatii();
 	}
+
+	public void afisare(){
+		System.out.println("Lider echipa: ");
+		this.liderEchipa.afisare();
+		System.out.println("Voluntari: ");
+		for(int i = 0; i < nr_voluntari; i++){
+			this.voluntar[i].afisare();
+		}
+		System.out.println("Raport: ");
+		this.raport.afisare();
+		System.out.println("Activitate echipa: ");
+		this.activitateEchipa.toString();
+	}
+	
+    public boolean adaugareVoluntar(Voluntar voluntar){
+    	boolean solicitare = voluntar.isSolicitare();
+        if(voluntar.solicitareInscriere(solicitare)){
+            if(nr_voluntari < NR_MAX_VOLUNTARI){
+				this.voluntar[nr_voluntari++] = voluntar;
+				System.out.println("Voluntar adaugat!");
+				return true;
+			}else{
+				System.out.println("S-a atins numarul maxim de voluntari!");
+				return false;
+			}
+        }else{
+            return false;
+        }
+    }
+
+	@Override
+    public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Echipa echipa = (Echipa) o;
+    return nr_voluntari == echipa.nr_voluntari && Objects.equals(liderEchipa, echipa.liderEchipa) && Arrays.equals(voluntar, echipa.voluntar) && Objects.equals(raport, echipa.raport) && Objects.equals(activitateEchipa, echipa.activitateEchipa) && Objects.equals(numeEchipa, echipa.numeEchipa);
+    }
+
+    @Override
+    public int hashCode() {
+    int result = Objects.hash(liderEchipa, raport, activitateEchipa, numeEchipa, nr_voluntari);
+    result = 31 * result + Arrays.hashCode(voluntar);
+    return result;
+    }
 };

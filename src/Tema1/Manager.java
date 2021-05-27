@@ -23,24 +23,4 @@ public class Manager extends Persoana{
     public Eveniment[] getEveniment() {
         return evenimente;
     }
-
-    public void solicitareRaport(Echipa echipa){
-
-    }
-
-    public void adaugareVoluntar(Voluntar voluntar){
-
-    }
-
-    public void alocareEchipa(){
-
-    }
-
-    public void asignareActivitateEchipa(Activitati activitate, Echipa echipa){
-
-    }
-
-    public void creareEchipa(String nume){
-
-    }
 };

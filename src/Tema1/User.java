@@ -19,7 +19,7 @@ public class User {
 	private String parola;
 
 	/**
-	 *
+	 * 
 	 */
 	public void afisare() {
 		System.out.println("Username: " + this.username);

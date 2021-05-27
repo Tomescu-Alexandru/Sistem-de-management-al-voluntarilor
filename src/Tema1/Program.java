@@ -97,7 +97,15 @@ public class Program {
 
     }
 
-    public void afisare(){
+    public int getNrActivitati() {
+		return nrActivitati;
+	}
+
+	public void setNrActivitati(int nrActivitati) {
+		this.nrActivitati = nrActivitati;
+	}
+
+	public void afisare(){
         for(int i=0;i<nrActivitati;i++){
             System.out.println(intervalOrar[i]);
             System.out.println(activitati[i].toString());

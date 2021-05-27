@@ -74,4 +74,12 @@ public class Voluntar extends Persoana {
 	public boolean solicitareInscriere(boolean solicitare) {
 		return solicitare;
 	}
+
+	public boolean isSolicitare() {
+		return solicitare;
+	}
+
+	public void setSolicitare(boolean solicitare) {
+		this.solicitare = solicitare;
+	}
 };

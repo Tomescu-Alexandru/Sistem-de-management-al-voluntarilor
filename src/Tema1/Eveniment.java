@@ -91,4 +91,52 @@ public class Eveniment {
     public void creareProgram(String intervaleOrare[]) {
         this.program = new Program(intervaleOrare);
     }
+
+    public void solicitareRaport(Echipa echipa){
+        echipa.eliberareRaport();
+    }
+
+    //mutata din Manager + parametrii 
+    public boolean alocareEchipa(Voluntar voluntar, Echipa echipa){
+        return echipa.adaugareVoluntar(voluntar);
+    }
+
+    //mutata din clasa Manager
+    public boolean asignareActivitateEchipa(Activitati activitate, Echipa echipa){
+        boolean verif = false;
+        for(int i = 0; i < program.getNrActivitati(); i++){
+            if(program.activitati[i].equals(activitate)){
+                verif = true;
+            }
+        }
+
+        if(verif == false){
+            return false;
+        }
+
+        for(int i = 0; i < nrEchipe; i++){
+            if(this.echipa[i].equals(echipa)){
+                this.echipa[i].setActivitateEchipa(activitate);
+                return true;
+            }
+        }
+
+        return false;
+    }
+	
+    
+    public boolean creareEchipa(String nume){
+        if (nrEchipe < NR_MAX_ECHIPE) {
+            for (int i = 0; i < nrEchipe; i++)
+                if (echipa[i].getNumeEchipa() == nume) {
+                    System.out.println("Echipa existenta");
+                    return false;
+                }
+            this.echipa[nrEchipe++].setNumeEchipa(nume);
+            System.out.println("Echipa adaugata");
+            return true;
+        }
+        System.out.println("Numar maxim de echipe atins");
+        return false;
+    }
 };
