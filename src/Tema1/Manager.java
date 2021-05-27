@@ -10,8 +10,18 @@ package Tema1;
  */
 public class Manager extends Persoana{
 
+    private Eveniment eveniment;
+
     public Manager(String username, String parola, String nume, String prenume, int varsta){
         super(username,parola,nume,prenume,varsta);
+    }
+
+    public Eveniment getEveniment() {
+        return eveniment;
+    }
+
+    public void setEveniment(Eveniment eveniment) {
+        this.eveniment = eveniment;
     }
 
     public void solicitareRaport(Echipa echipa){
