@@ -36,11 +36,12 @@ public class Voluntar extends Persoana {
 	}
 
 	public Voluntar(String username, String parola, String nume, String prenume, int varsta, String intervalOrar,
-			String zileDisponibilitate, String rol) {
+			String zileDisponibilitate, String rol, boolean solicitare) {
 		super(username, parola, nume, prenume, varsta);
 		this.intervalOrar = intervalOrar;
 		this.zileDisponibilitate = zileDisponibilitate;
 		Rol = rol;
+		this.solicitare = solicitare;
 	}
 
 	public String getIntervalOrar() {

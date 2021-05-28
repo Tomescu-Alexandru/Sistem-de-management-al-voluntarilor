@@ -17,6 +17,7 @@ public class AdaugareVoluntar {
     @Test
     public void testare(){
         Activitati activitate = new Activitati("activitate","activitate",5);
+        eveniment.setProgram(program);
         Echipa echipa1 = new Echipa("Echipa1");
         program.adaugareActivitate(activitate);
        
@@ -29,10 +30,11 @@ public class AdaugareVoluntar {
         Echipa echipa2 = new Echipa("Echipa2");
         assertEquals(false,eveniment.asignareActivitateEchipa(activitate, echipa2));
         
-        Voluntar voluntar = new Voluntar("voluntar1","voluntar1","voluntar1","voluntar1",18,"10-12","Zi1","Rol1");
+        Voluntar voluntar = new Voluntar("voluntar1","voluntar1","voluntar1","voluntar1",18,"10-12","Zi1","Rol1",true);
        
-        assertEquals(true,eveniment.alocareEchipa(voluntar, echipa1));
-        assertEquals(false,eveniment.alocareEchipa(voluntar, echipa2));
+        assertEquals(true,echipa1.adaugareVoluntar(voluntar));
+        assertEquals(true,eveniment.alocareEchipa(voluntar, echipa2));
+        assertEquals(false,eveniment.alocareEchipa(voluntar, echipa1));
     }
 
 }
