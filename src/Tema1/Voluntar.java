@@ -75,7 +75,7 @@ public class Voluntar extends Persoana {
 		return solicitare;
 	}
 
-	public boolean isSolicitare() {
+	public boolean getSolicitare() {
 		return solicitare;
 	}
 
