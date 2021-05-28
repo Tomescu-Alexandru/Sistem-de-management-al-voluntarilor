@@ -12,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testareActivitati {
 
+    //Test Tomescu Ilie Alexandru
+
     private String[] intervaleOrare={"8-10","10-12","12-14"};
     private Program program =  new Program(intervaleOrare);
 
@@ -28,7 +30,7 @@ public class testareActivitati {
         assertEquals(false, program.adaugareActivitate(activitate4));
 
         Activitati activitate5 = new Activitati("activitate5","activitate",5);
-        assertEquals(false, program.stergereActivitate(activitate5));
+        assertEquals(false,program.stergereActivitate(activitate5));
         assertEquals(true,program.stergereActivitate(activitate3));
 
         assertEquals(false,program.redenumireActivitate("activitate1","activitate1"));

@@ -17,6 +17,5 @@ public class Main {
         //assertEquals(false, program.adaugareActivitate(activitate));
         System.out.println(program.activitati[0].toString());
         //System.out.println(program.activitati[0].redenumireActivitate(""));
-
     }
 }
