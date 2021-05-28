@@ -114,7 +114,7 @@ public class Echipa {
 	 */
 	public boolean completareRaport(String ocupatie) {
 		if(ocupatie != " "){
-			raport.adaugare_ocupatie(ocupatie);
+			raport.adaugareOcupatie(ocupatie);
 			return true;
 		}else{
 			System.out.println("Nu este o ocupatie valida!");
@@ -143,7 +143,7 @@ public class Echipa {
 	}
 	
     public boolean adaugareVoluntar(Voluntar voluntar){
-    	boolean solicitare = voluntar.isSolicitare();
+    	boolean solicitare = voluntar.getSolicitare();
         if(voluntar.solicitareInscriere(solicitare)){
             if(nr_voluntari < NR_MAX_VOLUNTARI){
             	for(int i = 0; i < nr_voluntari; i++) {
