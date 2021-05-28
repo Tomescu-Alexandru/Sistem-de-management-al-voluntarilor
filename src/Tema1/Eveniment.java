@@ -6,6 +6,9 @@ package Tema1;
 
 /************************************************************/
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  *
  */
@@ -141,5 +144,20 @@ public class Eveniment {
         }
         System.out.println("Numar maxim de echipe atins");
         return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Eveniment eveniment = (Eveniment) o;
+        return nrEchipe == eveniment.nrEchipe && Objects.equals(locatie, eveniment.locatie) && Objects.equals(numeEveniment, eveniment.numeEveniment) && Arrays.equals(echipa, eveniment.echipa) && Objects.equals(program, eveniment.program) && Objects.equals(manager, eveniment.manager);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(locatie, numeEveniment, nrEchipe, program, manager);
+        result = 31 * result + Arrays.hashCode(echipa);
+        return result;
     }
 };

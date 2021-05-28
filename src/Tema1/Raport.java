@@ -36,7 +36,7 @@ public class Raport {
 		return istoricOcupatii;
 	}
 
-	public void adaugare_ocupatie(String ocupatie) {
+	public void adaugareOcupatie(String ocupatie) {
 		this.istoricOcupatii[nr_ocupatii++] = ocupatie;
 	}
 };

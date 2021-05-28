@@ -23,4 +23,20 @@ public class Manager extends Persoana{
     public Eveniment[] getEveniment() {
         return evenimente;
     }
+
+    public boolean creareEveniment(Eveniment eveniment) {
+        if (nrEvenimente < NR_MAX_EVENIMENTE) {
+            for (int i = 0; i < nrEvenimente; i++)
+                if (evenimente[i].equals(eveniment)) {
+                    System.out.println("Eveniment existenta");
+                    return false;
+                }
+            this.evenimente[nrEvenimente++] = eveniment;
+            System.out.println("Eveniment adaugata");
+            return true;
+        }
+        System.out.println("Numar maxim de evenimente atins");
+        return false;
+    }
+
 };

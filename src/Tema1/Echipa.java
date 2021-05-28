@@ -112,7 +112,7 @@ public class Echipa {
 	 */
 	public boolean completareRaport(String ocupatie) {
 		if(ocupatie != " "){
-			raport.adaugare_ocupatie(ocupatie);
+			raport.adaugareOcupatie(ocupatie);
 			return true;
 		}else{
 			System.out.println("Nu este o ocupatie valida!");
